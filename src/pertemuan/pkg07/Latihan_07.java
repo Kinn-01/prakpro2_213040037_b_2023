@@ -15,95 +15,107 @@ import java.io.IOException;
  *
  * @author Gilman Arief
  */
+
+// Membuat Class Latihan_07 yang mewarisi JFrame
 public class Latihan_07 extends JFrame {
     
+    //Instansiasi dataTable dengan nama dt
     private dataTable dt = new dataTable();
     
+    
     public Latihan_07() {
-        
+        // Method untuk mencegah frame ketika tombol X ditekan
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         
-        
+        // Instansiasi JLabel dengan nama labelHeader 
         JLabel labelHeader = new JLabel("Form Biodata", JLabel.CENTER);
         
+        //Mengatur ukuran panjang dan lebar serta posisi x dan y
         labelHeader.setBounds(0,20,350,10);
         
-        
+        // Instansiasi JLabel dengan nama labelNama 
         JLabel labelNama = new JLabel("Nama : ");
-        
+        // Mengatur ukuran panjang dan lebar serta posisi x dan y
         labelNama.setBounds(15,40,350,10);
         
+        // Instansiasi JTextField dengan nama textFieldNama
         JTextField textFieldNama = new JTextField();
-        
+        // Mengatur ukuran panjang dan lebar serta posisi x dan y
         textFieldNama.setBounds(15,60,350,30);
-        
-        
+    
+        // Instansiasi JLabel dengan nama labelHP
         JLabel labelHP = new JLabel("Nomor Hp : ");
-        
+        // Mengatur ukuran panjang dan lebar serta posisi x dan y
         labelHP.setBounds(15,100,350,10);
         
-        
+        // Instansiasi JTextField dengan nama textFieldHP
         JTextField textFieldHP = new JTextField();
-        
+        // Atur ukuran panjang dan lebar serta posisi x dan y
         textFieldHP.setBounds(15,120,350,30);
         
-        
+        // Instansiasi JLabel dengan nama labelRadio
         JLabel labelRadio = new JLabel("Jenis Kelamin : ");
-        
+        // Atur ukuran panjang dan lebar serta posisi x dan y
         labelRadio.setBounds(15,160,350,10);
         
-        
+       // Instansiasi JRadioButton dengan nama radioButton1 dengan pesan "Laki-Laki" dan selected dengan nilai true
        JRadioButton radioButton1 = new JRadioButton("Laki-Laki", true); 
-        
+       // Atur ukuran panjang dan lebar serta posisi x dan y
        radioButton1.setBounds(15, 180, 350, 30);
 
-       
+       // Instansiasi JRadioButton dengan nama radioButton1 dengan pesan "Perempuan"
        JRadioButton radioButton2 = new JRadioButton("Perempuan");
-       
+       // Atur ukuran panjang dan lebar serta posisi x dan y
        radioButton2.setBounds(15, 210, 350, 30);
        
-       
+       // Instansiasi ButtonGroup dengan nama bg
        ButtonGroup bg = new ButtonGroup();
-       
+       // Masukan radioButton1 dan radioButton2 ke objek bg
        bg.add(radioButton1);
-       
        bg.add(radioButton2);
+       
        
        JLabel labelAlamat = new JLabel("Alamat : ");
        labelAlamat.setBounds(15,240, 350, 30);
        
+       // Instansiasi JTextArea dengan nama txtOutput
        JTextArea txtOutput = new JTextArea("");
-       
+       // Atur ukuran panjang dan lebar serta posisi x dan y
        txtOutput.setBounds(15,270,350,100);
        
-       
+       // Instansiasi JButton dengan nama button yang diberikan nilai "Simpan"
        JButton button = new JButton("Simpan");
+       // Atur ukuran panjang dan lebar serta posisi x dan y
        button.setBounds(15,380,100,40);
        
+       // Instansiasi JButton dengan nama button yang diberikan nilai "Ubah"
        JButton buttonUbah = new JButton("Ubah");
+       // Atur ukuran panjang dan lebar serta posisi x dan y
        buttonUbah.setBounds(125,380,100,40);
        
+       // Instansiasi JButton dengan nama button yang diberikan nilai "Hapus"
        JButton buttonHapus = new JButton("Hapus");
         // Atur ukuran panjang dan lebar serta posisi x dan y
        buttonHapus.setBounds(235, 380, 100, 40);
        
+       // Instansiasi JButton dengan nama button yang diberikan nilai "Simpan ke File"
        JButton buttonFile = new JButton("Simpan ke File");
         // Atur ukuran panjang dan lebar serta posisi x dan y
         buttonFile.setBounds(345, 380, 150, 40);
        
-        
+        // Instansiasi JTable dengan nama table
         JTable table = new JTable();
-       
+        // Instansiasi JScrollPane dengan nama scrollableTable
         JScrollPane scrollableTable = new JScrollPane(table);
-       
+        // Atur ukuran panjang dan lebar serta posisi x dan y
         scrollableTable.setBounds(15,440,500,200);
         
-        
+        // Instansiasi MyTableModel dengan nama tableModel
         MyTableModel tableModel = new MyTableModel();
-        
+        // Atur model dari table dengan objek tableModel
         table.setModel(tableModel);
         
-        
+        // Menambahkan action listener ke button
          button.addActionListener(new ActionListener() {
             // Method untuk menerima event
             public void actionPerformed(ActionEvent e) {
@@ -128,7 +140,7 @@ public class Latihan_07 extends JFrame {
 
                 // Variable nama untuk menyimpan nilai dari objek textFieldNama (nama)
                 String nama = textFieldNama.getText();
-                // Variable telepon untuk menyimpan nilai dari objek textFieldTelepon (telepon)
+                // Variable telepon untuk menyimpan nilai dari objek textFieldHP (HP)
                 String telepon = textFieldHP.getText();
                 // Variable alamat untuk menyimpan nilai dari objek txtOutput (alamat)
                 String alamat = txtOutput.getText();
@@ -199,7 +211,7 @@ public class Latihan_07 extends JFrame {
         });
          
          
-        
+        // Menambahkan action listener ke button ubah
          buttonUbah.addActionListener(new ActionListener() {
             // Method untuk menerima event
             public void actionPerformed(ActionEvent e) {
@@ -243,7 +255,7 @@ public class Latihan_07 extends JFrame {
             }
         });
          
-         
+         // Menambahkan action listener ke button hapus
          buttonHapus.addActionListener(new ActionListener() {
             // Method untuk menerima event
             public void actionPerformed(ActionEvent e) {
@@ -269,7 +281,7 @@ public class Latihan_07 extends JFrame {
             }
         });
          
-         
+         // Menambahkan action listener ke button file
         buttonFile.addActionListener(new ActionListener() {
             // Method untuk menerima event
             public void actionPerformed(ActionEvent e) {
@@ -327,7 +339,7 @@ public class Latihan_07 extends JFrame {
             }
         });
         
-        
+        // Menambahkan window listener ke frame
          this.addWindowListener(new WindowAdapter() {
             // Override method windowClosing dari WindowAdapter
             public void windowClosing(WindowEvent e) {
@@ -399,9 +411,13 @@ public class Latihan_07 extends JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    // Main Method
     public static void main(String[] args) {
         // TODO code application logic here
         
+        // Method invokeLater dari SwingUtilities untuk menjalankan objek Runnable yang
+        // berguna menangani event dan update UI
         SwingUtilities.invokeLater(new Runnable() {
             // Override method run dari Runnable
             public void run() {
